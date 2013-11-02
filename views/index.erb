@@ -1,1 +1,11 @@
-<a href="event/new"><h1>New event</h1></a>
+<a href="event/new"><h1>Create a new event</h1></a>
+<hr/>
+<h3>Existing events:</h3>
+<ul style="text-align: center">
+    <% @events.each do |e| %>
+        <li>
+            <a href="/event/<%=e.id%>"><%= e.name %></a>
+        </li>
+    <% end %>
+</ul>
+
