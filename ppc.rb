@@ -48,8 +48,8 @@ class Ppc < Sinatra::Base
 
     get '/event/:id/suggestion/:sid' do
         @event = Event.get params[:id]
-        @timesuggestion = @event.time_suggestions.get params[:sid]
-        erb :userresponsetable
+        timesuggestion = @event.time_suggestions.get params[:sid]
+        erb :userresponsetable, :locals => { :timesuggestion => timesuggestion }
     end
     
 

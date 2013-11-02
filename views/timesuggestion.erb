@@ -4,7 +4,7 @@
             <thead>
                 <tr>
                     <td>
-                        <a href="/event/<%= @event.id %>/suggestion/<%= timesuggestion.id %>">
+                        <a class="header" data-tsid="timesuggestion_<%= timesuggestion.id %>" href="/event/<%= @event.id %>/suggestion/<%= timesuggestion.id %>">
                             <h2><%= timesuggestion.time.strftime "%d.%m.%Y %H:%M" %></h2>
                         </a>
                     </td>
@@ -36,6 +36,9 @@
                 </tr>
             </tbody>
         </table>
+        <div class="details">
+            <%= erb :userresponsetable, :locals => { :timesuggestion => timesuggestion } %>
+        </div>
         <div class="comments">
         </div>
     </div>

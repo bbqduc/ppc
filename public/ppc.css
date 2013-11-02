@@ -95,3 +95,11 @@ progress
     border-top: 1px dashed grey;
     height: 300px;
 }
+
+.details
+{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
