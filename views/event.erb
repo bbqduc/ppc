@@ -1,7 +1,8 @@
 <h1><%= @event.name %></h1>
 <h3><%= @event.description %></h3>
 <ul>
-    <% @event.time_suggestions.each do |ts| %>
+    <% timesugs = @event.time_suggestions.all :order => [:time.asc] %>
+    <% timesugs.each do |ts| %>
         <%= erb :timesuggestion, :layout => false, :locals => { :timesuggestion => ts } %>
     <% end %>
 </ul>
