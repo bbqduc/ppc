@@ -7,8 +7,9 @@
         <input type="submit" value="Submit answers"></input>
     </span>
     <ul id="timesuggestions">
-            <% @timesugs.each do |ts| %>
-                <%= erb :timesuggestion, :layout => false, :locals => { :timesuggestion => ts } %>
-            <% end %>
+        <% @timesugs.each do |ts| %>
+            <%= erb :timesuggestion, :layout => false, :locals => { :timesuggestion => ts } %>
+        <% end %>
+        <% session[:opencomments] = "" %>
     </ul>
 </form>

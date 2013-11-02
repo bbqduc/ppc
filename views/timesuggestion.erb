@@ -37,9 +37,10 @@
             </tbody>
         </table>
         <div class="details">
-            <%= erb :userresponsetable, :locals => { :timesuggestion => timesuggestion } %>
+            <%= erb :userresponsetable_inline, :locals => { :timesuggestion => timesuggestion } %>
         </div>
-        <div class="comments">
+        <div class="comments <%if session[:opencomments] == "timesuggestion_#{timesuggestion.id}" %>open<%end%>">
+            <%= erb :commentstable, :locals => { :timesuggestion => timesuggestion } %>
         </div>
     </div>
 </li>

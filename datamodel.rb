@@ -20,6 +20,7 @@ class TimeSuggestion
     belongs_to :event
 
     has n, :user_responses
+    has n, :comments
 
     def responseOkCount
         user_responses.all(:response => true).count
@@ -48,6 +49,15 @@ class UserResponse
 
     belongs_to :time_suggestion
     belongs_to :user
+end
+
+class Comment
+    include DataMapper::Resource
+
+    property :id,       Serial
+    property :comment,  String, :required => true
+
+    belongs_to :time_suggestion
 end
 
 #puts "Initializing DataMapper"

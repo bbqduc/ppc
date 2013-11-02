@@ -5,7 +5,7 @@ $(function() {
         controlType: "select",
         showTime: false,
         showButtonPanel: false,
-            timeFormat: "hh",
+        timeFormat: "HH",
         altField: "#suggestiontime",
         altFormat: "yy-mm-dd",
         altTimeFormat: "hh:00:00",
@@ -14,10 +14,12 @@ $(function() {
 });
 </script>
 
-<h1>New event</h1>
+<h1>Suggest a new time</h1>
 
-<form action="/event/<%=@event.id%>/suggestion/new" method="post">
-    <div id="datepicker"></div>
-    <input id="suggestiontime" type="hidden" name="suggestiontime"></input>
-    <div><input type="submit" value="Submit"/></div>
-</form>
+<div id="suggestdiv">
+    <form action="/event/<%=@event.id%>/suggestion/new" method="post">
+        <div id="datepicker"></div>
+        <input id="suggestiontime" type="hidden" name="suggestiontime"></input>
+        <div><input type="submit" value="Submit"/></div>
+    </form>
+</div>

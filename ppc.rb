@@ -5,6 +5,7 @@ require './datamodel'
 class Ppc < Sinatra::Base
 
     get '/' do
+        erb :index
     end
 
     get '/event/new' do
@@ -13,6 +14,23 @@ class Ppc < Sinatra::Base
 
     post '/event/new' do
         event = Event.create :name => params[:eventname], :description => params[:eventdescription]
+        redirect "/event/#{event.id}"
+    end
+
+    post '/event/:id/suggestion/:sid/comments/new' do
+        event = Event.get params[:id]
+        timesuggestion = event.time_suggestions.get params[:sid]
+
+        puts "paramsseja"
+        puts params["commentmessage_#{timesuggestion.id}"]
+
+        comment = Comment.new :comment => params["commentmessage_#{timesuggestion.id}"]
+        timesuggestion.comments << comment
+
+        timesuggestion.save
+        comment.save
+
+        session[:opencomments] = "timesuggestion_#{timesuggestion.id}"
         redirect "/event/#{event.id}"
     end
 
@@ -54,13 +72,26 @@ class Ppc < Sinatra::Base
     
 
     post '/event/:id/submitsuggestions' do
+
         event = Event.get params[:id]
+
+        timesuggestions = event.time_suggestions
+        timesuggestions.each do |ts|
+            puts "ja halloota"
+            puts params["commentmessage_#{ts.id}"]
+            if params["commentmessage_#{ts.id}"] != ""
+                redirect "/event/#{event.id}/suggestion/#{ts.id}/comments/new", 307 # redirect as post
+            end
+        end
+
         if params[:username] == ""
             redirect "/event/#{event.id}"
         end
+
+
         user = User.first_or_create :name => params[:username]
 
-        event.time_suggestions.each do |ts|
+        timesuggestions.each do |ts|
             ur = UserResponse.first :user => user, :time_suggestion => ts
             resp = params["response_#{ts.id}"] == "on"
             if ur

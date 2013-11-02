@@ -1,3 +1,21 @@
+@font-face
+{
+    font-family: chunkfive;
+    src: url('/Chunkfive.otf');
+}
+
+h1
+{
+    font-family: chunkfive;
+    font-size: 32pt;
+    font-weight: normal;
+}
+h3
+{
+    font-family: chunkfive;
+    font-weight: normal;
+}
+
 #eventname
 {
 }
@@ -10,6 +28,7 @@
 body
 {
     text-align: center;
+    font-family: arial;
 }
 
 ul
@@ -43,17 +62,27 @@ li
     padding: 1em;
     border-radius: 3px;
     width: 100%;
+    background-color: #EEF;
 }
 
 progress
 {
+    -webkit-appearance: none;
+    appearance: none;
     width: 100%;
+    border: 0;
 }
 
-.timesuggestion table
-{
-    text-align: center;
-    width: 100%;
+progress[value]::-webkit-progress-bar {
+    border: 0;
+    background-color: #F00;
+    border-radius: 4px;
+    color: #0F0;
+}
+
+progress[value]::-webkit-progress-value {
+    border: 0;
+    border-radius: 4px 0px 0px 4px;
 }
 
 .ts_checkbox
@@ -93,7 +122,6 @@ progress
 {
     display: none;
     border-top: 1px dashed grey;
-    height: 300px;
 }
 
 .details
@@ -102,4 +130,57 @@ progress
     position: fixed;
     left: 0;
     top: 0;
+}
+
+textarea
+{
+    width: 98%;
+    min-height: 100px;
+    resize: none;
+}
+
+.timesuggestion .commentstable
+{
+    text-align: left;
+}
+
+.timesuggestion table
+{
+    text-align: center;
+    width: 100%;
+}
+
+.comment
+{
+    border-top: solid 1px #EEE;
+}
+
+.open
+{
+    display: block;
+}
+
+#home
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#suggestdiv
+{
+    text-align: center;
+}
+
+#suggestdiv #datepicker
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1em;
+}
+
+dd
+{
+    -webkit-margin-start: 0px;
 }

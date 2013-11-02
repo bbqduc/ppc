@@ -1,0 +1,13 @@
+<table class="commentstable">
+    <thead>
+    </thead>
+    <tbody>
+        <tr><td>
+            <p><textarea name="commentmessage_<%= timesuggestion.id %>"></textarea></p>
+            <input type="submit" value="Submit comment"></input>
+        </td></tr>
+        <% timesuggestion.comments.all(:order => [:id.desc]).each do |com| %>
+            <%= erb :comment, :locals => {:comment => com} %>
+        <% end %>
+    </tbody>
+</table>
