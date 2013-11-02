@@ -1,4 +1,11 @@
 <tr>
     <td><%= userresponse.user.name %></td>
-    <td><%= userresponse.response %></td>
+    <% if userresponse.response %>
+        <td class="ok">
+        <%= "✓" %>
+    <% else %>
+        <td class="not_ok">
+        <%= "✗" %>
+    <% end %>
+    </td>
 </tr>

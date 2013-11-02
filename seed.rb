@@ -8,8 +8,6 @@ ur2=UserResponse.create(:response => false)
 
 u.user_responses << ur
 ts.user_responses << ur
-u.user_responses << ur2
-ts.user_responses << ur2
 
 u.save
 ts.save

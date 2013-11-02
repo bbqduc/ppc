@@ -1,18 +1,42 @@
 <li>
-    <div class='timesuggestion'>
-        <h2><%= timesuggestion.time.strftime "%d.%m.%Y %H:%M" %></h2>
-        <div>
-            <progress value="<%= timesuggestion.responseOkCount %>" max="<%= timesuggestion.responseCount %>">
-            </progress>
-            <p>
-                <span class="ok">
-                    <%= timesuggestion.responseOkCount %>
-                </span>
-                <span class="not_ok">
-                    <%= timesuggestion.responseCount-timesuggestion.responseOkCount %>
-                </span>
-            </p>
-            <input name="response_<%= timesuggestion.id %>" type="checkbox"></input>
+    <div id="timesuggestion_<%= timesuggestion.id %>" class="timesuggestion">
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        <a href="/event/<%= @event.id %>/suggestion/<%= timesuggestion.id %>">
+                            <h2><%= timesuggestion.time.strftime "%d.%m.%Y %H:%M" %></h2>
+                        </a>
+                    </td>
+                    <td class="oktext">
+                        Suitable
+                    </td>
+                <tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><progress value="<%= timesuggestion.responseOkCount %>" max="<%= timesuggestion.responseCount %>"></progress></td>
+                    <td>
+                        <input class="ts_checkbox" name="response_<%= timesuggestion.id %>" type="checkbox"></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="status">
+                        &nbsp; <!-- why, oh why -->
+                        <span class="absolute ok">
+                            <%= timesuggestion.responseOkCount %>
+                        </span>
+                        <span class="absolute not_ok">
+                            <%= timesuggestion.responseCount-timesuggestion.responseOkCount %>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button class="commentbutton" data-tsid="timesuggestion_<%= timesuggestion.id %>">Comments</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="comments">
         </div>
     </div>
 </li>

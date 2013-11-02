@@ -1,14 +1,12 @@
 require 'sinatra'
 require './datamodel'
-require './seed'
+#require './seed'
 
 class Ppc < Sinatra::Base
 
     get '/' do
-        @timesuggestion = TimeSuggestion.first
-        erb :userresponsetable
     end
-    
+
     get '/event/new' do
         erb :addevent
     end
@@ -48,8 +46,18 @@ class Ppc < Sinatra::Base
         redirect "/event/#{@event.id}"
     end
 
+    get '/event/:id/suggestion/:sid' do
+        @event = Event.get params[:id]
+        @timesuggestion = @event.time_suggestions.get params[:sid]
+        erb :userresponsetable
+    end
+    
+
     post '/event/:id/submitsuggestions' do
         event = Event.get params[:id]
+        if params[:username] == ""
+            redirect "/event/#{event.id}"
+        end
         user = User.first_or_create :name => params[:username]
 
         event.time_suggestions.each do |ts|

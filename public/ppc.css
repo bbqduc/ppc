@@ -1,0 +1,97 @@
+#eventname
+{
+}
+
+#eventdesc
+{
+    color: #888;
+}
+
+body
+{
+    text-align: center;
+}
+
+ul
+{
+    text-align: left;
+    list-style-type: none;
+    -webkit-padding-start: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+li
+{
+    margin-top: 6px;
+}
+
+#timesuggestions
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 320px;
+}
+
+#submitstuff
+{
+}
+
+.timesuggestion
+{
+    border: 1px solid black;
+    padding: 1em;
+    border-radius: 3px;
+    width: 100%;
+}
+
+progress
+{
+    width: 100%;
+}
+
+.timesuggestion table
+{
+    text-align: center;
+    width: 100%;
+}
+
+.ts_checkbox
+{
+}
+
+.status
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.absolute
+{
+    position: absolute;
+}
+
+.ok
+{
+    left: 0;
+    color: green;
+}
+
+.oktext
+{
+    vertical-align: bottom;
+}
+
+.not_ok
+{
+    right: 0;
+    color: red;
+}
+
+.comments
+{
+    display: none;
+    border-top: 1px dashed grey;
+    height: 300px;
+}

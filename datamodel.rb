@@ -50,8 +50,8 @@ class UserResponse
     belongs_to :user
 end
 
-puts "Initializing DataMapper"
+#puts "Initializing DataMapper"
 
 DataMapper.finalize
-DataMapper.auto_migrate!
+#DataMapper.auto_migrate!
 DataMapper.auto_upgrade!
