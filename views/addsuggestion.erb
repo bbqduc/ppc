@@ -1,0 +1,23 @@
+<script>
+$(function() {
+    $("#datepicker").datetimepicker({
+        inline: true,
+        controlType: "select",
+        showTime: false,
+        showButtonPanel: false,
+            timeFormat: "hh",
+        altField: "#suggestiontime",
+        altFormat: "yy-mm-dd",
+        altTimeFormat: "hh:00:00",
+        altFieldTimeOnly: false
+    });
+});
+</script>
+
+<h1>New event</h1>
+
+<form action="/event/<%=@event.id%>/suggestion/new" method="post">
+    <div id="datepicker"></div>
+    <input id="suggestiontime" type="hidden" name="suggestiontime"></input>
+    <div><input type="submit" value="Submit"/></div>
+</form>

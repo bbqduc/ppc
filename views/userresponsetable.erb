@@ -1,0 +1,9 @@
+<table>
+    <thead>
+    </thead>
+    <tbody>
+        <% @timesuggestion.user_responses.each do |us| %>
+            <%= erb :userresponse, :locals => {:userresponse => us} %>
+        <% end %>
+    </tbody>
+</table>

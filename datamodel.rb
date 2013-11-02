@@ -20,6 +20,15 @@ class TimeSuggestion
     belongs_to :event
 
     has n, :user_responses
+
+    def responseOkCount
+        user_responses.all(:response => true).count
+    end
+
+    def responseCount
+        user_responses.count
+    end
+
 end
 
 class User
@@ -34,8 +43,8 @@ end
 class UserResponse
     include DataMapper::Resource
 
-    property :id,     Serial
-    property :answer, Boolean
+    property :id,       Serial
+    property :response, Boolean
 
     belongs_to :time_suggestion
     belongs_to :user

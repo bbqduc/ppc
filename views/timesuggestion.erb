@@ -1,0 +1,17 @@
+<li>
+    <div class='timesuggestion'>
+        <h2><%= timesuggestion.time.strftime "%d.%m.%Y %H:%M" %></h2>
+        <div>
+            <progress value="<%= timesuggestion.responseOkCount %>" max="<%= timesuggestion.responseCount %>">
+            </progress>
+            <p>
+                <span class="ok">
+                    <%= timesuggestion.responseOkCount %>
+                </span>
+                <span class="not_ok">
+                    <%= timesuggestion.responseCount-timesuggestion.responseOkCount %>
+                </span>
+            </p>
+        </div>
+    </div>
+</li>
