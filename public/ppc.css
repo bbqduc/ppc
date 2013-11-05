@@ -50,6 +50,7 @@ li
     margin-left: auto;
     margin-right: auto;
     width: 320px;
+    padding-left: 0px;
 }
 
 #submitstuff
@@ -71,6 +72,11 @@ progress
     appearance: none;
     width: 100%;
     border: 0;
+}
+
+progress::-moz-progress-bar {
+    background-color: #0C0;
+    border-radius: 4px;
 }
 
 progress[value]::-webkit-progress-bar {

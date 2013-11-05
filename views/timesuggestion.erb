@@ -21,7 +21,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="status">
+                    <td>
+					<div class="status">
                         &nbsp; <!-- why, oh why -->
                         <span class="absolute ok">
                             <%= timesuggestion.responseOkCount %>
@@ -29,6 +30,7 @@
                         <span class="absolute not_ok">
                             <%= timesuggestion.responseCount-timesuggestion.responseOkCount %>
                         </span>
+					</div>
                     </td>
                 </tr>
                 <tr>
